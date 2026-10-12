@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-b5f6ecd5-62fb-4844-a9a0-3d37d3067536"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".card-wrapper .card {background: #fbf7f0; border: 1px solid #e4d7c2; border-radius: 12px; transition: 0.25s;}",
+        ".card-wrapper .card:hover {transform: translateY(-4px); border-color: #a9762f;}",
+        ".card__heading a {font-family: Georgia, serif; color: #2b2118 !important;}",
+        ".price {color: #8a5a1e !important;}",
+        ".price del {color: #b7a488 !important;}",
+        ".card .button {background: transparent; border: 1px solid #a9762f; color: #8a5a1e !important; border-radius: 20px;}",
+        ".card .button:hover {background: #a9762f; color: #fbf7f0 !important;}"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-90bc4b58-0996-4a97-b2c2-5b3b30bfc110",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

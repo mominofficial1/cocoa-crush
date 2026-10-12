@@ -1,0 +1,310 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .faq-accordion-section {
+    background: {{ section.settings.bg_color }};
+  }
+
+  .faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .faq-header h2 {
+    font-family: Georgia, serif;
+    font-size: 2.2rem;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 0.5rem 0;
+  }
+
+  .faq-header p {
+    color: {{ section.settings.text_color }};
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: {{ section.settings.card_bg }};
+    border: 1px solid {{ section.settings.border_color }};
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #A9762F;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+    font-family: inherit;
+  }
+
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: {{ section.settings.icon_bg }};
+    color: {{ section.settings.icon_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 1.5rem;
+    color: {{ section.settings.text_color }};
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 0 1.5rem 1.25rem 1.5rem;
+  }
+{%- endstyle -%}
+
+<div class="faq-accordion-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2>{{ section.settings.title }}</h2>
+        {%- if section.settings.subtitle != blank -%}
+          <p>{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="faq-list">
+        {%- for block in section.blocks -%}
+          <div class="faq-item{% if forloop.first %} active{% endif %}" {{ block.shopify_attributes }}>
+            <button type="button" class="faq-question" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+              <span>{{ block.settings.question }}</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div>{{ block.settings.answer }}</div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqButtons = document.querySelectorAll('.faq-question');
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        // Close others in same accordion
+        const container = item.closest('.faq-list');
+        container.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('active');
+            const otherBtn = other.querySelector('.faq-question');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        if (isActive) {
+          item.classList.remove('active');
+          button.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ & GMC Compliance",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Everything you need to know about our chocolates, shipping, and guarantees."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FAF6F0"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#EADBCE"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#2B2118"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#5A4A38"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg",
+      "label": "Icon Background",
+      "default": "#F4EDE2"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#8A5A1E"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How long does shipping and delivery take?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>All orders are hand-packed and dispatched within 1–2 business days. Express insulated delivery typically arrives within 2–4 business days. You will receive an instant tracking link via email as soon as your order ships.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ & GMC Compliance",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping and delivery take?",
+            "answer": "<p>All orders are freshly packed and dispatched within <strong>1–2 business days</strong>. Standard insulated shipping takes <strong>2–4 business days</strong>. Tracking details are automatically emailed upon dispatch.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your 30-Day Return & Freshness Guarantee?",
+            "answer": "<p>We stand behind our craft with a <strong>100% Satisfaction Guarantee</strong>. If your chocolate arrives melted, damaged, or you are not completely delighted with your order within 30 days, contact our support team for an immediate replacement or full refund.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do you protect chocolate from melting during transit?",
+            "answer": "<p>We use custom temperature-regulated thermal wrap and food-safe cool packs during warmer months to ensure your artisanal chocolate arrives in perfect, pristine condition.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What payment methods do you accept?",
+            "answer": "<p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay. All transactions are protected with bank-grade 256-bit SSL encryption.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your chocolates organic, vegan, or gluten-free?",
+            "answer": "<p>Our dark chocolate selections are 100% plant-based, dairy-free, and crafted from certified organic, ethically sourced single-origin cacao. Detailed allergen and ingredient lists are available on every product page.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

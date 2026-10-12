@@ -1,0 +1,78 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_contact": {
+          "type": "announcement",
+          "settings": {
+            "text": "📞 Support: +1 (800) 555-2626 • ✉️ support@cocoacrush.com • Mon-Fri 9am-5pm EST",
+            "link": "shopify://pages/contact"
+          }
+        },
+        "announcement_shipping": {
+          "type": "announcement",
+          "settings": {
+            "text": "✨ Free Insulated Express Shipping on orders over $40 🍫",
+            "link": "shopify://collections/all"
+          }
+        },
+        "announcement_guarantee": {
+          "type": "announcement",
+          "settings": {
+            "text": "🛡️ 30-Day 100% Freshness Guarantee • Melt-Free Delivery Guaranteed",
+            "link": "shopify://pages/refund-policy"
+          }
+        },
+        "announcement_discount": {
+          "type": "announcement",
+          "settings": {
+            "text": "🎁 Take 10% Off Your First Order with Code: SWEET10",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_contact",
+        "announcement_shipping",
+        "announcement_guarantee",
+        "announcement_discount"
+      ],
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 4,
+        "color_scheme": "scheme-2d45d728-b3b1-4d59-a083-6d5a5012f091",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "always",
+        "show_line_separator": true,
+        "color_scheme": "scheme-90bc4b58-0996-4a97-b2c2-5b3b30bfc110",
+        "menu_color_scheme": "scheme-3",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

@@ -1,0 +1,197 @@
+{%- style -%}
+  .contact-section-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem 1.5rem;
+  }
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .contact-header h1 {
+    font-family: Georgia, serif;
+    font-size: 2.8rem;
+    color: #2B2118;
+    margin: 0 0 0.75rem 0;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media screen and (min-width: 850px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+  .contact-info-panel {
+    background: #FAF6F0;
+    border: 1px solid #EADBCE;
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .contact-card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .contact-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #F4EDE2;
+    color: #8A5A1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .contact-card-text h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.15rem;
+    color: #2B2118;
+    font-weight: 700;
+  }
+  .contact-card-text p {
+    margin: 0;
+    color: #5A4A38;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+  .contact-form-panel {
+    background: #FFFFFF;
+    border: 1px solid #EADBCE;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 20px rgba(43, 33, 24, 0.04);
+  }
+  .contact-input-field {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #D8C7B4;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #FAF6F0;
+  }
+  .contact-input-field:focus {
+    outline: none;
+    border-color: #8A5A1E;
+    background: #FFFFFF;
+  }
+  .contact-submit-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: #2B2118;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+  .contact-submit-btn:hover {
+    background: #A9762F;
+    transform: translateY(-2px);
+  }
+{%- endstyle -%}
+
+<div class="page-width">
+  <div class="contact-section-wrapper">
+    <div class="contact-header">
+      <span style="display: inline-block; padding: 6px 16px; background: #F4EDE2; color: #8A5A1E; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 20px; margin-bottom: 0.75rem;">
+        We're Here To Help
+      </span>
+      <h1>Contact Cocoa Crush Support</h1>
+      <p style="color: #6B5A46; font-size: 1.15rem; max-width: 600px; margin: 0 auto;">
+        Have a question about your order, custom corporate gifting, or our artisanal chocolates? Reach out directly.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info Column -->
+      <div class="contact-info-panel">
+        <h3 style="font-family: Georgia, serif; font-size: 1.6rem; color: #2B2118; margin: 0 0 1.5rem 0;">
+          Customer Care Center
+        </h3>
+
+        <div class="contact-card-item">
+          <div class="contact-icon-box">📍</div>
+          <div class="contact-card-text">
+            <h4>Physical Address</h4>
+            <p>124 Artisan Way, Suite 400<br>New York, NY 10001, United States</p>
+          </div>
+        </div>
+
+        <div class="contact-card-item">
+          <div class="contact-icon-box">📞</div>
+          <div class="contact-card-text">
+            <h4>Phone Support</h4>
+            <p><strong>+1 (800) 555-2626</strong><br>Mon – Fri: 9:00 AM – 5:00 PM EST</p>
+          </div>
+        </div>
+
+        <div class="contact-card-item">
+          <div class="contact-icon-box">✉️</div>
+          <div class="contact-card-text">
+            <h4>Email Support</h4>
+            <p><strong>support@cocoacrush.com</strong><br>Average response time: &lt; 24 hours</p>
+          </div>
+        </div>
+
+        <div class="contact-card-item" style="margin-bottom: 0;">
+          <div class="contact-icon-box">⏰</div>
+          <div class="contact-card-text">
+            <h4>Operating Hours</h4>
+            <p>Monday – Friday: 9:00 AM – 5:00 PM EST<br>Closed on Federal Holidays</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div class="contact-form-panel">
+        <h3 style="font-family: Georgia, serif; font-size: 1.6rem; color: #2B2118; margin: 0 0 1.5rem 0;">
+          Send Us a Message
+        </h3>
+        {%- form 'contact', id: 'ContactPageForm' -%}
+          {%- if form.posted_successfully? -%}
+            <div style="background: #E8F5E9; border: 1px solid #A5D6A7; color: #2E7D32; padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; font-weight: 600;">
+              ✓ Thank you! Your message has been sent. We will respond within 24 hours.
+            </div>
+          {%- elsif form.errors -%}
+            <div style="background: #FFEBEE; border: 1px solid #FFCDD2; color: #C62828; padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <label style="display: block; margin-bottom: 0.4rem; font-weight: 600; color: #2B2118;">Your Full Name *</label>
+          <input type="text" name="contact[name]" class="contact-input-field" placeholder="Jane Doe" required>
+
+          <label style="display: block; margin-bottom: 0.4rem; font-weight: 600; color: #2B2118;">Your Email Address *</label>
+          <input type="email" name="contact[email]" class="contact-input-field" placeholder="jane@example.com" required>
+
+          <label style="display: block; margin-bottom: 0.4rem; font-weight: 600; color: #2B2118;">Order Number (Optional)</label>
+          <input type="text" name="contact[order_number]" class="contact-input-field" placeholder="#CC-1024">
+
+          <label style="display: block; margin-bottom: 0.4rem; font-weight: 600; color: #2B2118;">Your Message *</label>
+          <textarea name="contact[body]" rows="5" class="contact-input-field" placeholder="How can our team assist you today?" required></textarea>
+
+          <button type="submit" class="contact-submit-btn">Send Message ✉️</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Contact Page",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

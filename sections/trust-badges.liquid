@@ -1,0 +1,301 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.85 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.85 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .trust-badges-section {
+    background: {{ section.settings.bg_color }};
+    border-top: 1px solid {{ section.settings.border_color }};
+    border-bottom: 1px solid {{ section.settings.border_color }};
+  }
+
+  .trust-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media screen and (min-width: 600px) {
+    .trust-badges-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .trust-badges-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .trust-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.6rem 1.8rem;
+    background: {{ section.settings.card_bg }};
+    border-radius: 16px;
+    border: 1px solid {{ section.settings.card_border }};
+    box-shadow: 0 4px 16px rgba(43, 33, 24, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .trust-badge-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(62, 35, 22, 0.12);
+    border-color: #A9762F;
+  }
+
+  .trust-badge-icon {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: {{ section.settings.icon_bg }};
+    color: {{ section.settings.icon_color }};
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 1px rgba(169, 118, 47, 0.15);
+  }
+
+  .trust-badge-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
+  .trust-badge-content h4 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: {{ section.settings.heading_color }};
+    font-family: inherit;
+    letter-spacing: -0.2px;
+  }
+
+  .trust-badge-content p {
+    margin: 0;
+    font-size: 0.98rem;
+    color: {{ section.settings.text_color }};
+    line-height: 1.45;
+  }
+{%- endstyle -%}
+
+<div class="trust-badges-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <div class="center" style="margin-bottom: 2.5rem;">
+        <span style="display: inline-block; padding: 6px 16px; background: #F4EDE2; color: #8A5A1E; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 20px; margin-bottom: 0.75rem;">
+          Verified Quality & Trust
+        </span>
+        <h2 style="color: {{ section.settings.heading_color }}; font-family: Georgia, serif; font-size: 2.4rem; margin: 0; font-weight: 700;">
+          {{ section.settings.title }}
+        </h2>
+        {%- if section.settings.subtitle != blank -%}
+          <p style="color: {{ section.settings.text_color }}; margin-top: 0.75rem; font-size: 1.15rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+            {{ section.settings.subtitle }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="trust-badges-grid">
+      {%- for block in section.blocks -%}
+        <div class="trust-badge-item" {{ block.shopify_attributes }}>
+          <div class="trust-badge-icon">
+            {%- case block.settings.icon_type -%}
+              {%- when 'shipping' -%}
+                <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              {%- when 'shield' -%}
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              {%- when 'leaf' -%}
+                <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+              {%- when 'support' -%}
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+              {%- when 'heart' -%}
+                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            {%- endcase -%}
+          </div>
+          <div class="trust-badge-content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust & GMC Badges",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "The Cocoa Crush Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Handcrafted single-origin chocolate, transparent policies, and 100% risk-free ordering."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FAF6F0"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#EBDDCB"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card Border Color",
+      "default": "#EADBCE"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg",
+      "label": "Icon Background",
+      "default": "#F4EDE2"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#8A5A1E"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#2B2118"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#5A4A38"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Icon",
+          "options": [
+            { "value": "shipping", "label": "Fast Shipping" },
+            { "value": "shield", "label": "Guarantee / Shield" },
+            { "value": "leaf", "label": "Organic / Quality" },
+            { "value": "support", "label": "Customer Support" },
+            { "value": "heart", "label": "Handcrafted / Heart" }
+          ],
+          "default": "shipping"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Badge Title",
+          "default": "Insulated Express Delivery"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Badge Description",
+          "default": "Fast 2-4 day delivery with temperature-safe packing."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust & GMC Badges",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "title": "Insulated Express Delivery",
+            "text": "Fast 2-4 day shipping with temperature-safe cold packaging."
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shield",
+            "title": "30-Day Freshness Guarantee",
+            "text": "100% money-back or replacement if you're not delighted."
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "leaf",
+            "title": "100% Single-Origin Cacao",
+            "text": "Ethically sourced, organic & stone-ground in small batches."
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "title": "24/7 Verified Support",
+            "text": "Direct phone & email support with 24-hour response."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

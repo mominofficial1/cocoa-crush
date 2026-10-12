@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "faq": {
+      "type": "faq-accordion",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping and delivery take?",
+            "answer": "<p>All orders are freshly packed and dispatched within <strong>1–2 business days</strong>. Standard insulated shipping takes <strong>2–4 business days</strong>. Tracking details are automatically emailed upon dispatch.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your 30-Day Return & Freshness Guarantee?",
+            "answer": "<p>We stand behind our craft with a <strong>100% Satisfaction Guarantee</strong>. If your chocolate arrives melted, damaged, or you are not completely delighted with your order within 30 days, contact our support team for an immediate replacement or full refund.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do you protect chocolate from melting during transit?",
+            "answer": "<p>We use custom temperature-regulated thermal wrap and food-safe cool packs during warmer months to ensure your artisanal chocolate arrives in perfect, pristine condition.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What payment methods do you accept?",
+            "answer": "<p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay. All transactions are protected with bank-grade 256-bit SSL encryption.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your chocolates organic, vegan, or gluten-free?",
+            "answer": "<p>Our dark chocolate selections are 100% plant-based, dairy-free, and crafted from certified organic, ethically sourced single-origin cacao. Detailed allergen and ingredient lists are available on every product page.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Clear, honest answers regarding shipping, ingredients, and our 100% freshness guarantee.",
+        "bg_color": "#FAF6F0",
+        "card_bg": "#FFFFFF",
+        "border_color": "#EADBCE",
+        "heading_color": "#2B2118",
+        "text_color": "#5A4A38",
+        "icon_bg": "#F4EDE2",
+        "icon_color": "#8A5A1E",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "faq"
+  ]
+}

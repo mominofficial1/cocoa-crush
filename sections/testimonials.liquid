@@ -1,0 +1,293 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .testimonials-section {
+    background: {{ section.settings.bg_color }};
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .testimonials-header h2 {
+    font-family: Georgia, serif;
+    font-size: 2.2rem;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 0.5rem 0;
+  }
+
+  .testimonials-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFFFF;
+    border: 1px solid #EADBCE;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2B2118;
+    margin-bottom: 0.75rem;
+  }
+
+  .stars {
+    color: #E2992F;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonial-card {
+    background: {{ section.settings.card_bg }};
+    border: 1px solid {{ section.settings.border_color }};
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(43, 33, 24, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(43, 33, 24, 0.08);
+  }
+
+  .testimonial-stars {
+    color: #E2992F;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial-text {
+    color: {{ section.settings.text_color }};
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #F0E6D8;
+    padding-top: 1rem;
+  }
+
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #EEDECB;
+    color: #7A4B1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .author-info h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+  }
+
+  .author-info span {
+    font-size: 0.8rem;
+    color: #2E7D32;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+{%- endstyle -%}
+
+<div class="testimonials-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="testimonials-header">
+      <div class="testimonials-rating-badge">
+        <span class="stars">★★★★★</span>
+        <span>4.9 / 5 Rating from 2,500+ Chocolate Lovers</span>
+      </div>
+      <h2>{{ section.settings.title }}</h2>
+      {%- if section.settings.subtitle != blank -%}
+        <p style="color: {{ section.settings.text_color }};">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="testimonials-grid">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-text">“{{ block.settings.review }}”</div>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">{{ block.settings.author | slice: 0, 1 }}</div>
+            <div class="author-info">
+              <h4>{{ block.settings.author }}</h4>
+              <span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#2E7D32"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Verified Buyer • {{ block.settings.location }}
+              </span>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Loved by Connoisseurs Worldwide"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Read real stories from our community of craft chocolate enthusiasts."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F7EFE3"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#E8DBCA"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#2B2118"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#4A3B2C"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review Text",
+          "default": "Hands down the richest, smoothest craft chocolate I've ever tasted. The insulated packaging arrived in mint condition during summer!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer Name",
+          "default": "Eleanor Vance"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location / Purchased Product",
+          "default": "Single-Origin Dark Box"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "review": "The flavor depth in the 75% Dark Truffle bar is unbelievable. You can genuinely taste the ethical stone-ground craftmanship. Customer support was also super helpful!",
+            "author": "Marcus Sterling",
+            "location": "Dark Collection Bundle"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "review": "I ordered gift boxes for my team. The insulated packaging kept them completely solid and pristine despite the heatwave. Everyone was blown away by the quality.",
+            "author": "Sophia Laurent",
+            "location": "Artisan Gift Set"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "review": "Fast delivery in 2 days, beautiful unboxing experience, and the cleanest ingredients list. Cocoa Crush is our household's permanent favorite treat.",
+            "author": "David K.",
+            "location": "Caramel Sea Salt Bar"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

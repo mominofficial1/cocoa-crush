@@ -1,0 +1,96 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the Cocoa Crush VIP Club",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe for 10% off your first artisanal order, seasonal recipes, and exclusive limited edition releases.</p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email-form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-90bc4b58-0996-4a97-b2c2-5b3b30bfc110",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "about_brand": {
+          "type": "text",
+          "settings": {
+            "heading": "About Cocoa Crush",
+            "subtext": "<p>We craft pure, stone-ground artisanal chocolates using ethically sourced single-origin cacao. Handcrafted in small batches with zero artificial additives, palm oil, or preservatives.</p>"
+          }
+        },
+        "shop_links": {
+          "type": "text",
+          "settings": {
+            "heading": "Shop & Explore",
+            "subtext": "<p><a href=\"/collections/all\">All Artisan Chocolates</a><br><a href=\"/collections/all\">Single-Origin Dark Bars</a><br><a href=\"/collections/all\">Gourmet Gift Boxes</a><br><a href=\"/pages/track-order\">Track Your Package</a><br><a href=\"/pages/faq\">Frequently Asked Questions</a></p>"
+          }
+        },
+        "customer_care": {
+          "type": "text",
+          "settings": {
+            "heading": "Customer Care & Policies",
+            "subtext": "<p><a href=\"/pages/shipping-policy\">Shipping & Delivery Policy</a><br><a href=\"/pages/refund-policy\">30-Day Refund & Return Policy</a><br><a href=\"/pages/contact\">Contact Us & Customer Support</a><br><a href=\"/policies/privacy-policy\">Privacy Policy</a><br><a href=\"/policies/terms-of-service\">Terms of Service</a></p>"
+          }
+        },
+        "business_contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Official Business Info",
+            "subtext": "<p><strong>Cocoa Crush Artisanal Ltd.</strong><br>📍 124 Artisan Way, Suite 400, New York, NY 10001<br>📞 <strong>+1 (800) 555-2626</strong><br>✉️ <strong>support@cocoacrush.com</strong><br>⏰ Mon – Fri: 9:00 AM – 5:00 PM EST<br><em>Rapid 24-hour response guarantee</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "about_brand",
+        "shop_links",
+        "customer_care",
+        "business_contact"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2d45d728-b3b1-4d59-a083-6d5a5012f091",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "newsletter",
+    "footer"
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "🍫 Cocoa Crush Artisanal Cacao",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "gmc_trust_box": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"gmc-product-perks\" style=\"margin: 1.5rem 0; padding: 1.2rem 1.4rem; background: #FAF6F0; border: 1px solid #EADBCE; border-radius: 14px;\"><div style=\"display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem; color: #2B2118; font-weight: 600; font-size: 0.95rem;\"><span style=\"font-size: 1.2rem;\">🚚</span> <span>Fast 2–4 Day Insulated Delivery (Free on $40+)</span></div><div style=\"display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem; color: #2B2118; font-weight: 600; font-size: 0.95rem;\"><span style=\"font-size: 1.2rem;\">🛡️</span> <span>30-Day Freshness Guarantee • Melt-Free Delivery</span></div><div style=\"display: flex; align-items: center; gap: 10px; color: #2B2118; font-weight: 600; font-size: 0.95rem;\"><span style=\"font-size: 1.2rem;\">🔒</span> <span>Safe SSL Checkout: Visa, MC, Amex, Apple Pay, PayPal</span></div></div>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "tab_ingredients": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Craftsmanship & Ingredients",
+            "icon": "leaf",
+            "content": "<p>100% Single-origin organic cacao, organic unrefined cane sugar, pure cacao butter. Non-GMO, gluten-free, zero artificial preservatives or palm oils. Stone-ground in small batches over 48 hours.</p>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Insulated Temperature-Safe Shipping",
+            "icon": "box",
+            "content": "<p>Packed in thermal insulation with food-safe cool packs. Dispatched in 1–2 business days. Arrives in 2–4 days nationwide. Free shipping on all orders over $40.</p>"
+          }
+        },
+        "tab_returns": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "30-Day Risk-Free Freshness Guarantee",
+            "icon": "shield",
+            "content": "<p>If your chocolate arrives melted, damaged, or you are not completely delighted, reach out to support@cocoacrush.com for an instant replacement or 100% full refund. Zero restocking fees.</p>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "gmc_trust_box",
+        "description",
+        "tab_ingredients",
+        "tab_shipping",
+        "tab_returns",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-b5f6ecd5-62fb-4844-a9a0-3d37d3067536",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "trust_badges": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_1": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "title": "Insulated Express Delivery",
+            "text": "Delivered in 2–4 business days with melt-proof temperature wrap."
+          }
+        },
+        "badge_2": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shield",
+            "title": "30-Day Freshness Guarantee",
+            "text": "100% money-back or replacement if you're not fully delighted."
+          }
+        },
+        "badge_3": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "leaf",
+            "title": "Single-Origin Organic Cacao",
+            "text": "Ethically sourced from farmer co-ops with zero artificial additives."
+          }
+        },
+        "badge_4": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "title": "Verified 24/7 Support",
+            "text": "Dedicated customer assistance with quick 24-hour resolution."
+          }
+        }
+      },
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3",
+        "badge_4"
+      ],
+      "settings": {
+        "title": "The Cocoa Crush Guarantee",
+        "subtitle": "Artisanal quality, transparent policies, and 100% risk-free ordering.",
+        "bg_color": "#FAF6F0",
+        "border_color": "#EBDDCB",
+        "card_bg": "#FFFFFF",
+        "card_border": "#EADBCE",
+        "icon_bg": "#F4EDE2",
+        "icon_color": "#8A5A1E",
+        "heading_color": "#2B2118",
+        "text_color": "#5A4A38",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You May Also Crave",
+        "heading_size": "h1",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-90bc4b58-0996-4a97-b2c2-5b3b30bfc110",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust_badges",
+    "related-products"
+  ]
+}

@@ -1,0 +1,130 @@
+{%- style -%}
+  .policy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #3E2F22;
+  }
+  .policy-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #EADBCE;
+    padding-bottom: 2rem;
+  }
+  .policy-header h1 {
+    font-family: Georgia, serif;
+    font-size: 2.8rem;
+    color: #2B2118;
+    margin: 0 0 0.5rem 0;
+  }
+  .policy-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: #F4EDE2;
+    color: #8A5A1E;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+  .policy-highlight-box {
+    background: #FAF6F0;
+    border-left: 4px solid #2E7D32;
+    padding: 1.5rem 1.8rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+  .return-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .return-step-card {
+    background: #FFFFFF;
+    border: 1px solid #EADBCE;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #8A5A1E;
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+{%- endstyle -%}
+
+<div class="page-width">
+  <div class="policy-container">
+    <div class="policy-header">
+      <span class="policy-badge">Google Merchant Center Compliant</span>
+      <h1>30-Day Refund & Return Policy</h1>
+      <p style="color: #7A6956; margin: 0;">100% Customer Freshness & Satisfaction Guarantee</p>
+    </div>
+
+    <div class="policy-highlight-box">
+      <strong style="color: #2E7D32; font-size: 1.15rem;">🛡️ Our 30-Day Freshness Guarantee:</strong>
+      <p style="margin: 0.5rem 0 0 0;">We take immense pride in our craft. If your chocolate arrives melted, damaged, or you are unsatisfied for any reason within <strong>30 days of receipt</strong>, we will provide a free replacement or a full refund back to your original payment method with <strong>zero restocking fees</strong>.</p>
+    </div>
+
+    <h2>How to Request a Return or Replacement:</h2>
+    <div class="return-steps">
+      <div class="return-step-card">
+        <div class="step-num">1</div>
+        <h4 style="margin: 0 0 0.5rem 0; color: #2B2118;">Contact Support</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: #6B5A46;">Email us at support@cocoacrush.com with your order number and brief description.</p>
+      </div>
+      <div class="return-step-card">
+        <div class="step-num">2</div>
+        <h4 style="margin: 0 0 0.5rem 0; color: #2B2118;">Instant Review</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: #6B5A46;">Our team will review and approve your request within 24 hours.</p>
+      </div>
+      <div class="return-step-card">
+        <div class="step-num">3</div>
+        <h4 style="margin: 0 0 0.5rem 0; color: #2B2118;">Refund or Reship</h4>
+        <p style="margin: 0; font-size: 0.92rem; color: #6B5A46;">Enjoy a replacement dispatched with express insulated shipping or 100% refund in 2–5 days.</p>
+      </div>
+    </div>
+
+    <h2>1. Return Eligibility Window</h2>
+    <p>You have <strong>30 calendar days</strong> from the delivery date to notify us of any concerns. Because chocolate is a perishable food product, in most damaged/melted cases you will <em>not</em> need to mail back the melted items—simply send a photo for instant processing.</p>
+
+    <h2>2. Restocking Fees & Return Shipping Costs</h2>
+    <ul>
+      <li><strong>Restocking Fee:</strong> $0.00 (We do not charge any restocking fees).</li>
+      <li><strong>Defective / Melted / Damaged Items:</strong> 100% covered by Cocoa Crush. Free replacement or full refund.</li>
+      <li><strong>Change of Mind (Unopened):</strong> Customer covers return shipping to our facility.</li>
+    </ul>
+
+    <h2>3. Refund Processing Timeline</h2>
+    <p>Once your refund is issued, funds are returned directly to your original payment method (Credit Card, PayPal, Apple Pay, etc.) within <strong>2–5 business days</strong> depending on your financial institution.</p>
+
+    <h2>4. Official Return Support Contact</h2>
+    <p><strong>Cocoa Crush Returns Department</strong><br>
+    📍 124 Artisan Way, Suite 400, New York, NY 10001<br>
+    📞 +1 (800) 555-2626<br>
+    ✉️ <a href="mailto:support@cocoacrush.com" style="color: #A9762F;">support@cocoacrush.com</a><br>
+    ⏰ Monday – Friday: 9:00 AM – 5:00 PM EST</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Refund Policy Page",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

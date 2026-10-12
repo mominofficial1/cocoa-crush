@@ -1,0 +1,74 @@
+{%- style -%}
+  .track-order-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem 1.5rem;
+    text-align: center;
+  }
+  .track-order-card {
+    background: #FFFFFF;
+    border: 1px solid #EADBCE;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 20px rgba(43, 33, 24, 0.04);
+    margin: 2rem 0;
+  }
+  .track-input {
+    width: 100%;
+    max-width: 450px;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #D8C7B4;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    background: #FAF6F0;
+    text-align: center;
+  }
+  .track-btn {
+    padding: 1rem 2.5rem;
+    background: #2B2118;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+  .track-btn:hover {
+    background: #A9762F;
+  }
+{%- endstyle -%}
+
+<div class="page-width">
+  <div class="track-order-wrapper">
+    <span style="display: inline-block; padding: 6px 16px; background: #F4EDE2; color: #8A5A1E; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 20px; margin-bottom: 0.75rem;">
+      Live Shipment Tracking
+    </span>
+    <h1 style="font-family: Georgia, serif; font-size: 2.8rem; color: #2B2118; margin: 0 0 0.75rem 0;">
+      Track Your Cocoa Crush Package
+    </h1>
+    <p style="color: #6B5A46; font-size: 1.15rem;">
+      Enter your tracking number or order number below to check real-time courier updates.
+    </p>
+
+    <div class="track-order-card">
+      <form onsubmit="event.preventDefault(); window.open('https://www.17track.net/en/track?nums=' + encodeURIComponent(document.getElementById('trackNumber').value), '_blank');">
+        <input type="text" id="trackNumber" class="track-input" placeholder="e.g. 9400100000000000000000 or #CC-1024" required><br>
+        <button type="submit" class="track-btn">Track Shipment 🚚</button>
+      </form>
+      <p style="color: #7A6956; font-size: 0.9rem; margin-top: 1.5rem; margin-bottom: 0;">
+        Tracking details are sent to your email as soon as your package leaves our facility. Need help? Email <a href="mailto:support@cocoacrush.com" style="color: #A9762F;">support@cocoacrush.com</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Track Order Page",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}
